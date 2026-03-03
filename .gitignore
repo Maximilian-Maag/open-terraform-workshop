@@ -1,0 +1,44 @@
+# LaTeX intermediate files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# latexmk
+latexmkrc
+
+# Build folders (if you use one)
+build/
+
+# Generated PDFs (optional — remove if you want to track PDFs)
+*.pdf
+
+# Backup files
+*.bak
+*.backup
+*.tmp
+
+# VS Code settings (optional)
+.vscode/
+
+# Mac / Windows system files
+.DS_Store
+Thumbs.db
