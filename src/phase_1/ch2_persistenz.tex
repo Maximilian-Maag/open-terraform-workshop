@@ -1,0 +1,36 @@
+\documentclass{article}
+
+\begin{document}
+    \begin{center}
+        \Large \textbf{Challange 2: Persistenz} \\ [6pt]
+        \normalsize
+        Autor: Maximilian Jakob Maag B.Sc. \\
+        Version: 1.0
+    \end{center}
+    \section{Intro}
+    Wenn Terraform ein Element - z.B. eine Firewall, VPS, o.ä - provisioniert, dass bereits existiert, wird das bestehende Element zerstört und ein neues
+    Element provisioniert. Das kann dazu führen, dass Produktionsdaten oder Konfigurationen verlorgen gehen, wenn man nicht aufpasst.
+    \section{Aufgaben}
+    In dieser Übung sollen Sie einige VPS Instanzen deployen und konfigurationen. Danach werden Sie diese abändern.
+    Ihre Aufgabe ist es dafür zu sorgen, dass keine Daten verloren gehen. \\ \\
+    Um Anwendungsdaten zu simulieren, können Sie beispielsweise einen Mailserver wie Mailcow deployen.
+    \subsection{Aufgabe 1}
+    Suchen Sie sich eine Anwendung aus, welche Sie deployen wollen. Als Beispiel können Sie u.a. Mailcow verwenden. \\
+    Deployen Sie zunächst ein VPS, das so konfiguriert wurde das sie in der Lage sind sich mittels SSH zu verbinden. \\ 
+    Verbinden Sie sich mit dem VPS und deployen Sie auf dem VPS mailcow mittels Docker Compose. \\ \\
+    Ändern Sie eine Kleinigkeit an Ihrer Terraformkonfiguration z.B. die RAM Größe Ihres VPS  von 4 auf 8 GB.
+    Deployen sie Ihre Änderung mittels Terraform apply. \\ \\
+    Beobachten Sie das Verhalten des Mailservers. Was hat sich verändert? Ist der Server noch erreichbar? Welche IP Adresse hat Ihr VPS jetzt?
+    \subsection{Aufgabe 2}
+    Ihr Mailserver sollte nun nicht mehr existieren. Erläutern Sie warum das der Fall sein könnte. \\
+    Ändern Sie Ihre Konfiguration. Deployen Sie neben Ihrem VPS ein volume mit einer größe von 10 GB und verbinden Sie dieses mit ihrem VPS.
+    Mounten Sie das Volume unter /mnt/mail-data.
+    Überlegen Sie, wie sie auf diesem Volume die Konfiguration von Mailcow und ein Backup von Mailcow sinnvoll speichern  können.
+    Automatisieren Sie anschließend das Deployment eines VPS den Mount des Volumes, das Starten von Mailcow und das Einspielen des Backups auf der neuen Mailcow Instanz.
+    \subsection{Aufgabe 3}
+    Beobachten Sie das Verhalten des E-Mailservers erneut. Was stellen Sie fest, wenn Sie die Konfiguration Ihres VPS ändern? Was stellen Sie fest wenn Sie die Konfiguration des Volumes ändern?
+    Welches  Desaster könnte entstehen und wie könnten Sie dieses beheben?
+    \subsection{Aufgabe 4}
+    Führen Sie das in Aufgabe 3 von Ihnen beschriebene Desaster herbei und beheben Sie es.  \\ \\
+    Zum Schluss führen Sie nach dem Abschluss der Übung terraform destroy aus.
+\end{document}
