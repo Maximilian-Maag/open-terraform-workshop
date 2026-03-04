@@ -11,15 +11,14 @@
     Wie Sie bereits bemerkt haben, hat sich viel Terraform code wiederholt während Sie die letzten Challenges absolviert haben.
     In einer produktiven Umgebung wäre dieses Vorgehen zu zeitaufwändig und fehleranfällig. \\ \\
     Terraform bietet die Möglichkeit sogenannte Module zu definieren. Z.B. ein Modul für einen generischen Dockerstack mit einer Firewall und einem Volume.
-    Dieses Modul kann anschließend aufgerufen werden. Wird das Modul abgeändert, werden alle Instanzen des Moduls ebenfalls geändert. \\ \\
-    \\ \\
-    Für ein Modul müssen folgende Dinge definiert werden: \\ \\
+    Dieses Modul kann anschließend aufgerufen werden. Wird das Modul abgeändert, werden alle Instanzen des Moduls ebenfalls geändert. \\
+    Für ein Modul müssen folgende Dinge definiert werden: \\
     \begin{itemize}
         \item Die Variablen für das Modul
         \item Der Output des Moduls
         \item Der Terraformcode des Moduls  selbst
-    \end{itemize} \\ \\
-    Das Modul kann anschließend in einer Environment (Umgebung) aufgerufen werden, um deployed zu werden.
+    \end{itemize}
+    Das Modul kann anschließend in einer Environment aufgerufen werden, um deployed zu werden. \\
     \section{Aufgaben}
     In dieser Übung lernen Sie Module kennen. Es ist ihr Ziel wiederverwendbaren Code zu schreiben. Außerdem sollen Sie für unterschiedliche Zwecke unterschiedliche Umgebungen deployen.
     Gängig sind eine Umgebung für Production, eine Testumgebung Stageing, eine Entwicklungsumgebung ohne Regeln zum Probieren und Experimentieren Dev. \\ \\
