@@ -8,29 +8,29 @@
         Version: 1.0
     \end{center}
     \section{Intro}
-    An einem Terraform Projekt wirken immer mehrere Personen.
-    Terraform verlangt aber einen ist Status der Infrastruktur. Ändern zwei Admins etwas an einer Umgebung kommt es zum Split Brain.
-    Beispielsweise könnte Admin A eine Fierwall deployen, während Admin B eine VPS deployed. In diesem Fall kommt es zu einer Race condition.
-    Terraform bietet die Möglichkeit, den State in einem Remote Backend zu speichern. So können mehrere Admins gleichzeitig an einer Umgebung arbeiten, ohne dass es zu Konflikten kommt.
+    An einem Terraform-Projekt wirken immer mehrere Personen.
+    Terraform verlangt aber einen ist Status der Infrastruktur. Ändern zwei Admins etwas an einer Umgebung, kommt es zum Split Brain.
+    Beispielsweise könnte Admin A eine Firewall deployen, während Admin B ein VPS deployed. In diesem Fall kommt es zu einer Race Condition.
+    Terraform bietet die Möglichkeit, den State in einem Remote‑Backend zu speichern. So können mehrere Admins gleichzeitig an einer Umgebung arbeiten, ohne dass es zu Konflikten kommt.
     \\ \\
     Für diese Challenge ist ein Partner erforderlich.
 
     \section{Aufgabe}
-    In dieser Übung sollen Sie eine Race condition herbeiführen und beheben.
-    Race conditions können z.B. dadurch entstehen, dass zwei Admins gleichzeitig an einer Umgebung arbeiten und dabei den State der Umgebung verändern.
+In dieser Übung sollen Sie eine Race‑Condition herbeiführen und beheben.
+    Race Conditions können z. B. dadurch entstehen, dass zwei Admins gleichzeitig an einer Umgebung arbeiten und dabei den State der Umgebung verändern.
     Sie sollen sich mit diesem Problem vertraut machen und lernen es zu beheben. Außerdem erarbeiten Sie Lösungsstrategien, welche dieses Problem verhindern.
 
     \subsection{Aufgabe 1}
-    Richten Sie ein Git Repository für diese Übung ein. Es ist ein origin repo auf einem Git Server erforderlich.
-    Erstellen Sie, oder lassen Sie von einer KI ihres Vertrauens, ein gitignore file für das Repo erstellen und erzeugen Sie einen Init Commit.
+    Richten Sie ein Git-Repository für diese Übung ein. Es ist ein Origin-Repository auf einem Git-Server erforderlich.
+    Erstellen Sie, oder lassen Sie von einer KI Ihres Vertrauens, ein .gitignore-File für das Repository erstellen und erzeugen Sie einen Init‑Commit.
     \\ \\
-    Mergen Sie Ihren Commit in den Main branch. Suchen Sie sich einen Sparingspartner. Legen Sie jeweils einen Feature branch an. \\ \\
-    Deployen Sie auf beiden Branches gleichzeitig eine Firewall mit dem selben name tag. \\ \\
-    Einer  von Beiden versucht nun die Firewall zu entfernen, während der andere versucht ein VPS an die Firewall zu binden. Was passiert?
+    Mergen Sie Ihren Commit in den Main-Branch. Suchen Sie sich einen Sparring-Partner. Legen Sie jeweils einen Feature-Branch an. \\ \\
+    Deployen Sie auf beiden Branches gleichzeitig eine Firewall mit demselben Name-Tag. \\ \\
+    Einer von beiden versucht nun die Firewall zu entfernen, während der andere versucht, ein VPS an die Firewall zu binden. Was passiert?
 
     \subsection{Aufgabe 2}
-    Das Statefile in Ihren jeweiligen lokalen Branches scheint wichtig zu sein. Informieren Sie sich in der Terraform Dokumentation darüber. \\ \\
-    Entwickeln Sie Ideen, wie eine Race Condition in einer Produktivumgebung ausgeschlossen werden kann. \\ \\
-    Hinweis: Terraform liefert ein eigenes Produkt hierführ. Sie müssen es allerdings nicht verwendne, es gibt auch andere Lösungswege.
+Das State-File in Ihren jeweiligen lokalen Branches scheint wichtig zu sein. Informieren Sie sich in der Terraform-Dokumentation darüber. \\ \\
+    Entwickeln Sie Ideen, wie eine Race‑Condition in einer Produktivumgebung ausgeschlossen werden kann. \\ \\
+    Hinweis: Terraform liefert ein eigenes Produkt hierfür. Sie müssen es allerdings nicht verwenden, es gibt auch andere Lösungswege.
 
     \end{document}
