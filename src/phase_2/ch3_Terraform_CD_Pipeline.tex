@@ -1,0 +1,42 @@
+\documentclass{article}
+
+\begin{document}
+    \begin{center}
+        \Large \textbf{Challenge 3: Terraform CD Pipeline} \\ [6pt]
+        \normalsize
+        Autor: Maximilian Jakob Maag B.Sc. \\
+        Version: 1.0
+    \end{center}
+    \section{Intro}
+    Terraform in einer Enterprise-Umgebung muss in der Lage sein, von mehreren Personen gleichzeitig verwendet zu werden.
+    Eine Lösung für dieses Problem ist der Einsatz von Git. Ein Git-Repository speichert den Terraform-Code. Die einzelnen Admin/Entwickler reichen Pull‑Requests ein, um Änderungen zunächst in
+    einem Dev/Staging-Branch zusammenzuführen und zu testen. Dieser wird anschließend in den Main-Branch gemerged, was eine CD-Pipeline auslöst, welche terraform apply auf die Produktivumgebung anwendet.
+    CI/CD ist eine wichtige Praxis aus der Softwareentwicklung und in modernen Setups nahezu unverzichtbar.
+    \\ \\
+    Für diese Challenge ist die Zusammenarbeit mit mehreren Personen erforderlich. Eine Person errichtet die CD‑Pipeline.
+    Die anderen Personen schlagen Änderungen mittels PR vor. Nach erfolgreichem Merge muss die Infrastruktur von der Pipeline deployed werden.
+    \section{Aufgaben}
+    Diese Challenge soll Ihnen dabei helfen, Terraform im Enterprise-Umfeld einzusetzen.
+    Dafür errichten Sie mehrere CD-Pipelines für eine Staging- und eine Produktivumgebung.
+
+    \subsection{Aufgabe 1}
+    Legen Sie ein Git-Repository an. Dieses Repository muss auf einem Git-Server liegen.  \\ \\
+    Errichten Sie eine Multi‑Environment‑Umgebung in Terraform ein. Es muss mindestens eine Staging‑ und eine Prod-Umgebung vorhanden sein.
+
+    \subsection{Aufgabe 2}
+    Erstellen Sie mindestens ein Modul, welches in beiden Umgebungen verwendet wird. Ein simpler Docker-Stack ist ausreichend.
+
+    \subsection{Aufgabe 3}
+    Sobald ein Pull-Request in den Staging-Branch gemerged werden soll, soll eine CI-Pipeline überprüfen, ob der Terraform-Code korrekt kompiliert.
+    Nachdem der Merge erfolgt ist, soll eine CD-Pipeline die Infrastruktur deployen.
+
+    \subsection{Aufgabe 4}
+    Setzen Sie Aufgabe 3 in der Prod-Umgebung um. Sobald ein Pull-Request in den Main-Branch gemerged wird, soll die Infrastruktur in der Prod-Umgebung deployed werden.
+    Es soll nur von einem Staging-Branch in den Main-Branch gemerged werden. Das Pushen von Änderungen direkt auf den Main-Branch soll unterbunden werden.
+
+    \subsection{Aufgabe 5}
+    Testen Sie Ihre CD-Pipeline, indem Sie eine Änderung an Ihrem Modul vornehmen.
+    Gehen Sie einen Infrastruktur-Change vollständig durch. Führen Sie diese zunächst in der Staging-Umgebung aus. Anschließend testen Sie dort Ihre Änderung und überführen diese in den Main-Branch.
+    Die Übung ist erfolgreich, wenn Ihnen diese Änderung ohne Desaster oder Rollback gelungen ist. \\ \\
+    Nach dem Abschluss der Übung führen Sie in allen Umgebungen terraform destroy aus.
+\end{document}

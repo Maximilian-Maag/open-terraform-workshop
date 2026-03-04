@@ -1,0 +1,39 @@
+\documentclass{article}
+
+\begin{document}
+    \begin{center}
+        \Large \textbf{Challenge 2: Terraform und NixOS} \\ [6pt]
+        \normalsize
+        Autor: Maximilian Jakob Maag B.Sc. \\
+        Version: 1.0
+    \end{center}
+    \section{Intro}
+    Terraform ist hervorragend dafür geeignet, um Infrastruktur zu provisionieren. Allerdings ist es meist unproduktiv, ein Element einer Infrastruktur zu zerstören und neu anzulegen,
+    um eine kleine Änderung vorzunehmen. Terraform lässt sich auf verschiedene Wege hervorragend mit anderen Technologien kombinieren.
+    NixOS ist eine Linux-Distribution, die durch eine Konfigurationsdatei beschrieben wird.
+    Der Sollzustand, z. B. immer die neueste Version eines Pakets zu installieren oder Updates, lassen sich super automatisieren.
+
+    \section{Aufgaben}
+    Diese Challenge soll mehrere Welten miteinander verbinden. Terraform als Werkzeug für Provisionierung und NixOS für Wartungsaufgaben auf einem VPS.
+    Terraform soll Aufgaben um das VPS Übernehmen, während das VPS selbst nicht immer zerstört und neu angelegt wird. Beispielsweise Firewalls oder Portfreigaben lassen sich super mit Terraform ändern.
+    NixOS soll für die Wartung des VPS zuständig sein. Beispielsweise das Installieren von Paketen, das Einrichten von Diensten oder das Anlegen von Benutzern. \\ \\
+    Diese Übung konzentriert sich auf Wartungsaufgaben nach dem Deployment mittels Terraform. NixOS ist eines von vielen Beispielen; Ansible ist ebenfalls eine passende Lösung.
+
+    \subsection{Aufgabe 1}
+    NixOS ist nicht bei allen Providern standardmäßig vorhanden.
+    Deployen Sie ein VPS mit NixOS in einer Region Ihrer Wahl. Alle weiteren Aufgaben müssen ohne Terraform erfüllt werden.
+
+    \subsection{Aufgabe 2}
+    Erstellen Sie eine NixOS-Konfiguration, welche einen Benutzer hinzufügt. Außerdem soll ein Webserver installiert werden.
+    Sie können die NixOS-Konfiguration auch von einer KI erzeugen lassen. \\ \\
+    Verbinden Sie sich mittels SSH mit Ihrem deployten VPS und wenden Sie die NixOS-Konfiguration an. Überprüfen Sie die Anwendung, indem Sie den Webserver aufrufen.
+
+    \subsection{Aufgabe 3}
+    Verbinden Sie sich erneut mit Ihrem VPS. Führen Sie ein Rollback auf den Ausgangszustand von NixOS durch, ohne Terraform zu verwenden.
+
+    \subsection{Aufgabe 4}
+    Ändern Sie die Firewallregeln Ihres VPS mittels NixOS. Lassen Sie nur den Port 22 zu.
+    
+    \subsection{Aufgabe 5}
+    Deployen Sie nun mittels Terraform eine Firewall, die ebenfalls nur port 22 offen lässt, ohne das VPS zu zerstören.
+\end{document}
