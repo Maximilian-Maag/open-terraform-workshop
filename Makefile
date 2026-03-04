@@ -1,44 +1,35 @@
-# ==============================
-# LaTeX Multi-Document Makefile
-# ==============================
+# Makefile to compile all .tex files from src/ into build/ with full subdirectory support
 
-# Directories
-SRC_DIR   := src
+SRC_DIR := src
 BUILD_DIR := build
 
-# Tool
-LATEXMK   := latexmk
+# Find all .tex files recursively
+TEX_FILES := $(shell find $(SRC_DIR) -name '*.tex')
 
-# Find all .tex files inside src/
-TEX_FILES := $(shell find $(SRC_DIR) -type f -name "*.tex")
-
-# Convert src/path/file.tex -> build/path/file.pdf
+# Map .tex files to PDFs in build/ while preserving directory structure
 PDF_FILES := $(patsubst $(SRC_DIR)/%.tex,$(BUILD_DIR)/%.pdf,$(TEX_FILES))
 
-# Default target: build all documents
+# Default target
 all: $(PDF_FILES)
 
-# Pattern rule to compile each file independently
+# Recursive compilation rule for any subdirectory depth
 $(BUILD_DIR)/%.pdf: $(SRC_DIR)/%.tex
 	@mkdir -p $(dir $@)
-	$(LATEXMK) -pdf -interaction=nonstopmode -output-directory=$(dir $@) $<
+	@echo "Compiling $< -> $@"
+	-pdflatex -interaction=nonstopmode -halt-on-error -output-directory=$(dir $@) $<
 
-# Clean auxiliary files only
+# Clean helper rules
+# remove everything under build except PDFs (keeps directory structure intact)
+# also remove all non-tex files from src directory
 clean:
-	@find $(BUILD_DIR) -type f \( \
-		-name "*.aux" -o \
-		-name "*.log" -o \
-		-name "*.out" -o \
-		-name "*.toc" -o \
-		-name "*.nav" -o \
-		-name "*.snm" -o \
-		-name "*.synctex.gz" -o \
-		-name "*.fls" -o \
-		-name "*.fdb_latexmk" \
-	\) -delete
+	@echo "Removing non-pdf files from $(BUILD_DIR) ..."
+	@find $(BUILD_DIR) -type f ! -name '*.pdf' -delete
+	@echo "Removing non-tex files from $(SRC_DIR) ..."
+	@find $(SRC_DIR) -type f ! -name '*.tex' -delete
 
-# Remove everything (including PDFs)
+# remove the entire build directory
 clean-all:
-	rm -rf $(BUILD_DIR)
+	@echo "Removing build directory..."
+	@rm -rf $(BUILD_DIR)
 
 .PHONY: all clean clean-all
