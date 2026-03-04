@@ -1,0 +1,42 @@
+\documentclass{article}
+
+\begin{document}
+    \begin{center}
+        \Large \textbf{Challange 2: DNS Records und Firewall} \\ [6pt]
+        \normalsize
+        Autor: Maximilian Jakob Maag B.Sc. \\
+        Version: 1.0
+    \end{center}
+    \section{Intro}
+        Ein VPS allein genügt oft nicht. Es müssen viele Einstellungen getroffen werden, die nicht auf dem VPS selbst festgelegt werden können.
+        Für einen Mailserver müssen z.B. A-Records, MX-Records und diverse TXT Records angelegt werden. \\ \\
+        Diese Übung setzt vorraus, dass sie einen Mailserver  deployen können. \\ \\
+        U.a. der Provider Linode lässt das setzen von DNS Records und andere Einstellungen einer Domain per Terraform zu.
+    \section{Aufgaben}
+        In dieser Challange ist es Ihr Ziel passend zu Ihrem Mailserver dessen DNS Records mittels Terraform zu setzen und
+        eine ausreichend schützende Firewall zu konfigurieren.
+    \subsection{Aufgabe 1}
+        Testen Sie ihre Konfiguration aus den letzten Challenges und deployen sie einen Mailserver z.B. Mailcow. \\
+        Anschließend destroyen sie diesen wieder, damit er nicht ungeschützt im Internet erreichbar ist.
+    
+    \subsection{Aufgabe 2}
+        Erstellen die Config für eine Firewall. Blockieren Sie zunächst sämtlichen Inbound und Outboundtraffic.
+        Fügen Sie ihren Mailserver und mindestens drei andere VPS der Firewall hinzu. Pingen sie die Instanzen an. Was beobachten Sie?
+
+    \subsection{Aufgabe 3}
+        Ändern Sie die Konfiguration Ihrer Firewall ab. Lassen Sie ping und ssh zu.
+
+    \subsection{Aufgabe 4}
+        Ändern Sie die Konfiguration Ihrer Firewall erneut ab. Erarbeiten Sie sinnvolle Einstellungen für den Betrieb ihres Mailservers.
+        Testen Sie ob alles funktioniert, indem Sie auf Ihrem deployten Mailserver ein E-Mailkonto einrichten und eine E-Mail an sich selbst versenden.
+
+    \subsection{Aufgabe 5}
+        Verbinden Sie sich mit einem der anderen Beispiel VPS aus Aufgabe 1. Installieren Sie dort einen Webserver, der eine simple statische Webseite bereitstellt.
+        Ändern Sie die Regeln Ihrer Firewall. An diesem Server darf kein Mailport offen sein. Nur die Ports 443 und 80 für den Webserver, sowie 22 für SSH dürfen offen sein.
+        Der Mailserver muss von dieser Änderung unberührt bleiben und weiterhin E-Mails versenden können.
+    
+    \subsection{Aufgabe 6}
+        Legen sie einen A bzw. einen AAAA Record fest der auf Ihren Webserver zeigt. Rufen sie Ihre Webseite auf. Der Browser muss Ihnen eine statische Webseite ausliefern mittels einer gültigen HTTPS Verbindung.
+        Führen Sie am Ende der Übung terraform destroy aus.
+
+\end{document}
