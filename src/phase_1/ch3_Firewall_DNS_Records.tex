@@ -11,7 +11,9 @@
         Ein VPS allein genügt oft nicht. Es müssen viele Einstellungen getroffen werden, die nicht auf dem VPS selbst festgelegt werden können.
         Für einen Mailserver müssen z.B. A-Records, MX-Records und diverse TXT Records angelegt werden. \\ \\
         Diese Übung setzt vorraus, dass sie einen Mailserver  deployen können. \\ \\
-        U.a. der Provider Linode lässt das setzen von DNS Records und andere Einstellungen einer Domain per Terraform zu.
+        U.a. der Provider Linode lässt das setzen von DNS Records und andere Einstellungen einer Domain per Terraform zu. \\ \\
+        Neben DNS Records spielen Firewalls eine wichtige Rolle für die IT Security. Das Erstellen einer Firewall, das Zuweisen von VPSs und das Erstellen der
+        entsprechenden Firewallregeln kann ebenfalls mit Terraform vorgenommen werden. Je nach Provider unterscheiden sich die unterstützten Features.
     \section{Aufgaben}
         In dieser Challange ist es Ihr Ziel passend zu Ihrem Mailserver dessen DNS Records mittels Terraform zu setzen und
         eine ausreichend schützende Firewall zu konfigurieren.
