@@ -1,0 +1,50 @@
+\documentclass{article}
+
+\begin{document}
+    \begin{center}
+        \Large \textbf{Challange 4: Module und Environments} \\ [6pt]
+        \normalsize
+        Autor: Maximilian Jakob Maag B.Sc. \\
+        Version: 1.0
+    \end{center}
+    \section{Intro}
+    Wie Sie bereits bemerkt haben, hat sich viel Terraform code wiederholt während Sie die letzten Challenges absolviert haben.
+    In einer produktiven Umgebung wäre dieses Vorgehen zu zeitaufwändig und fehleranfällig. \\ \\
+    Terraform bietet die Möglichkeit sogenannte Module zu definieren. Z.B. ein Modul für einen generischen Dockerstack mit einer Firewall und einem Volume.
+    Dieses Modul kann anschließend aufgerufen werden. Wird das Modul abgeändert, werden alle Instanzen des Moduls ebenfalls geändert. \\ \\
+    \\ \\
+    Für ein Modul müssen folgende Dinge definiert werden: \\ \\
+    \begin{itemize}
+        \item Die Variablen für das Modul
+        \item Der Output des Moduls
+        \item Der Terraformcode des Moduls  selbst
+    \end{itemize} \\ \\
+    Das Modul kann anschließend in einer Environment (Umgebung) aufgerufen werden, um deployed zu werden.
+    \section{Aufgaben}
+    In dieser Übung lernen Sie Module kennen. Es ist ihr Ziel wiederverwendbaren Code zu schreiben. Außerdem sollen Sie für unterschiedliche Zwecke unterschiedliche Umgebungen deployen.
+    Gängig sind eine Umgebung für Production, eine Testumgebung Stageing, eine Entwicklungsumgebung ohne Regeln zum Probieren und Experimentieren Dev. \\ \\
+    Spätestens ab dieser Challenge wird der Einsatz von Git dringend empfohlen. Sie werden viele unterschiedliche Dateien handhaben in mehreren Versionen.
+    Damit Sie den Überblick nicht verlieren und ein Rollback auf eine funktionierende Version durchführen können, legen Sie für diese Challenge am besten ein Git Repository an.
+    Ein lokales Repositor is völlig ausreichend.
+    \subsection{Aufgabe 1}
+        Lesen Sie die terraform Dokumentation zu Modules. Erarbeiten Sie auch mithilfe einer KI eine Struktur für Ihren Terraform code.
+        Legen Sie fest welche Directories und sub directories sie verwenden möchten. Im Idealfall organisieren Sie diese in einem Repository.
+        Bedenken Sie, dass Sie sowohl Module als auch Umgebungen anlegen müssen. Ein Modul kann von mehreren Umgebungen verwendet werden. \\ \\
+        Richten Sie anschließend mindestens eine Umgebung für produktive Anwendungen, Eine Testumgebung und eine Entwicklungsumgebung ein.
+        Prod und Stageing sollen in der Cloud deployed werden. Dev sollte allerdings aus Kostengründen nur lokal auf Ihrem Computer deployed werden. \\ \\
+        Deployen Sie auch alle anderen Umgebungen aus Ihrem erarbeiteteen Konzept. \\ \\
+        Deployen Sie je Umgebung mindestens 3 Anwendungen. Beispiele währen, Mailcow, Nextcloud, Owncloud, Opencloud, Portainer, Mailu, Matrix, ein eigner Git Server.
+
+    \subsection{Aufgabe 2}
+        Lesen Sie Ihren Terraformcode genau. Suchen Sie nach wiederholten Mustern. Entscheiden Sie in welche Module Sie Ihren code unterteilen wollen. Welche Anwendungen kommen in allen Umgebungen vor?
+        Was brauchen Sie immer wieder? \\ \\
+        Erarbeiten Sie mindestens 3 geeignete Module und rufen Sie diese in allen Umgebungen mindestens einmal auf. \\ \\
+        Falls Sie git verwenden: Ermitteln Sie Ihre Lines of Code for und nach dieser Änderung. Vergleichen Sie diese und erläutern Sie die Bedeutung dieser Zahlen.
+        Was bedeutet das für Ihren Arbeitsalltag?
+
+    \subsection{Aufgabe 3}
+        Ändern sie nun etwas an Ihrem Modul. Zum Beispiel einen default Wert. Falls Sie VPS deployen fügen Sie auf Modulebene eine Firewall hinzu.
+        Deployen Sie Ihre Staging umgebung. Vergleichen Sie den Zustand dieser Umgebung mit Prod und Dev. Warum hat sich der Zustand dieser Umgebungen nicht geändert?
+        Was würde sich verändern, wenn Sie prod ebenfalls deployen? \\ \\
+        Führen Sie nach dem Ende der Challenge terraform destroy in allen Umgebungen aus.
+\end{document}
