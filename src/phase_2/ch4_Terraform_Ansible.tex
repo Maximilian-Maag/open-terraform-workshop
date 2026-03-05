@@ -1,5 +1,37 @@
 \documentclass{article}
 
 \begin{document}
+    \begin{center}
+        \Large \textbf{Challenge 1: Shared State} \\ [6pt]
+        \normalsize
+        Autor: Maximilian Jakob Maag B.Sc. \\
+        Version: 1.0
+    \end{center}
+    \section{Intro}
+    Terraform ist besonders gut geeignet, um Infrastrutkur zu provisonieren.
+    Aufgaben nach der Provisionierung, wie z.B. Updates führen dazu dass Terraform ein VPS zerstört und neu aufsetzt.
+    Dabei kann es zu Datenverlust kommen. Anstatt Terraform diese Aufgabe erledigen zu lassen kann z.B. Ansible verwendet werden.
+    \\ \\
+    Ansible ist in der Lage sich mit einem VPS zu verbinden und ein vordefiniertes Skript auszuführen.
+    Eine Installation, ein Backup, ein Rollback oder ein Update kann so durchgeführt werden.
 
+    \section{Aufgabe}
+    In dieser Challenge sollen Sie eine möglichst große Anzahl an VPS deployen.
+    In der Praxis ist die Zahl an Servern viel zu groß, um diese von Hand zu warten oder zu installieren. \\ \\
+    Das Bereitstellen der VPS inklusive DNS Record und Firewall übernimmt Terraform. Alles andere ist die Aufgabe von Ansible.
+
+    \subsection{Aufgabe 1}
+    Erstellen Sie ein Modul in Terraform für ein generisches VPS. Dieses muss ein Volume besitzen. Das Volume  muss gemounted werden.
+    Zusetzlich deployen Sie eine Firewall und  weisen das VPS der Firewall zu. Öffnen Sie geeignete Ports.
+
+    \subsection{Aufgabe 2}
+    Erstellen Sie ein Ansible Playbook, welches das VPS updated und einen Webserver installiert eine einfache Hello World  webseite soll angezeigt werden, sobald sich ein Nutzer mit dem Webserver verbindet.
+
+    \subsection{Aufgabe 3}
+    Passen Sie ihr Terraform Modul an, das VPS soll nun ebenfalls so vorbereitet werden, dass Sie Ihr Ansible Playbook auf jeder Instanz des VPS gleichzeitig starten können.
+
+    \subsection{Aufgabe 4}
+    Testen Sie Ihre Lösung, mit 2, 4, 8, 16 und 32 Instanzen Ihres VPS.
+    Entwickeln Sie zusätzlich ein kleines Shellskript welches Sie einmalig mit der Anzahl der Instanzen aufrufen. \\ 
+    Führen Sie nach der Challenge terraform destroy aus.
 \end{document}
