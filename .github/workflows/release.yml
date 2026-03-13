@@ -23,5 +23,5 @@ jobs:
       - uses: softprops/action-gh-release@v2
         with:
           files: "**/*.pdf"
-      env:
+        env:
           GITHUB_TOKEN: ${{ secrets.TERRAFORM_WORKSHOP_RELEASE }}
