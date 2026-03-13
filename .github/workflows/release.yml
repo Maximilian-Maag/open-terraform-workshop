@@ -1,28 +1,25 @@
-name: Build PDFs
+name: Release PDFs
 
 on:
-  pull_request:
-    branches:
-      - main
+  push:
+    tags:
+      - "v*"
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Install TeX Live
-        run: |
+      - run: |
           sudo apt-get update -y
           sudo apt-get install -y texlive-full make
 
-      - name: Compile PDFs
-        run: make && make clean
+      - run: make && make clean
 
-      - name: Create Release
-        uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@v2
         with:
-          files: |
-            **/*.pdf
+          files: "**/*.pdf"
