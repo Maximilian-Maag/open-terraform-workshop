@@ -5,6 +5,7 @@ pkgs.mkShell {
     pkgs.terraform
     pkgs.texliveFull
     pkgs.gnumake
+    pkgs.git
   ];
 
   shellHook = ''
